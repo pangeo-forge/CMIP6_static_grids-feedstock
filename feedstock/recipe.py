@@ -62,6 +62,7 @@ xr_open_kwargs_dict = {
 
 filepattern_kwargs_dict = {
     "GFDL-ESM4": {"file_type": "netcdf3"},
+    "GFDL-CM4": {"file_type": "netcdf3"},
     "MPI-ESM1-2-HR": {"file_type": "netcdf3"},
     "MPI-ESM1-2-LR": {"file_type": "netcdf3"},
     "NorESM2-MM": {"file_type": "netcdf3"},
