@@ -35,20 +35,13 @@ url_dict = {
 
 time_concat_dim = ConcatDim("mock_concat", [""], nitems_per_file=1)
 
-
-def make_full_path(mock_concat, grid_key="default"):
-    return url_dict[grid_key].format(mock_concat=mock_concat)
-
-
 # Preprocessors
-
-
 def gfdl_pp_func(ds, fname):
     return ds.drop("tile")  # dtype="|S255" is invalid for xarray
 
 
 preprocess_dict = {
-    # "GFDL-ESM4": gfdl_pp_func,
+    "GFDL-ESM4": gfdl_pp_func,
     # "another_grid_key": "another_grid_pp_func"
 }
 
@@ -67,15 +60,17 @@ filepattern_kwargs_dict = {
 
 
 def make_recipe(grid_key):
-    make_full_path.__defaults__ = (grid_key,)
+
+    def make_full_path(mock_concat):
+        return url_dict[grid_key].format(mock_concat=mock_concat)
 
     pp = preprocess_dict.get(grid_key, None)
-    xarray_open_kwargs = xr_open_kwargs_dict.get(grid_key, {})
+    xr_kwargs = xr_open_kwargs_dict.get(grid_key, {})
     fp_kwargs = filepattern_kwargs_dict.get(grid_key, {})
 
     filepattern = FilePattern(make_full_path, time_concat_dim, **fp_kwargs)
 
-    return XarrayZarrRecipe(filepattern, process_input=pp, xarray_open_kwargs=xarray_open_kwargs)
+    return XarrayZarrRecipe(filepattern, process_input=pp, xarray_open_kwargs=xr_kwargs)
 
 
 recipes = {k: make_recipe(k) for k in url_dict.keys()}
