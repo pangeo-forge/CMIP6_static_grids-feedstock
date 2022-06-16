@@ -28,6 +28,9 @@ url_dict = {
     "NorESM2-LM": (
         "{mock_concat}http://ns9560k.web.sigma2.no/inputdata/ocn/blom/grid/grid_tnx1v4_20170622.nc"
     ),
+    "CESM2": (
+        "{mock_concat}https://zenodo.org/record/6643449/files/CESM2_ocean_grid.nc?download=1"
+    ),
     # "another_grid_key": (
     #   "{mock_concat}ftp://another_grid_source_file_url"
     # ),
@@ -39,9 +42,13 @@ time_concat_dim = ConcatDim("mock_concat", [""], nitems_per_file=1)
 def gfdl_pp_func(ds, fname):
     return ds.drop("tile")  # dtype="|S255" is invalid for xarray
 
+def CESM2_pp_func(ds, fname):
+    return ds.drop(['moc_components', 'transport_components', 'transport_regions']) #ultimately it would be nice to have these uploaded to, but for now drop
+
 
 preprocess_dict = {
     "GFDL-ESM4": gfdl_pp_func,
+    "CESM2": CESM2_pp_func,
     # "another_grid_key": "another_grid_pp_func"
 }
 
