@@ -8,6 +8,11 @@ provenance:
   # @ Charles this one is difficult. I collected them all manually, and this information varies for each dataset!
   # What do you think we should do here
   providers: #TODO: Ask in the cloud call...
+    - name: "CNRM"
+      roles: 
+       - host
+      description: Provideds grid files for CNRM-CM6-1-HR
+      url: http://www.umr-cnrm.fr/?lang=en
     - name: "NOAA-GFDL"
       roles: 
        - host
