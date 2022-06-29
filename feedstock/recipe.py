@@ -14,6 +14,10 @@ url_dict = {
         "{mock_concat}ftp://ftp.gfdl.noaa.gov/"
         "perm/Alistair.Adcroft/MOM6-testing/OM4_05/ocean_hgrid.nc"
     ),
+    "GFDL-CM4": (
+        "{mock_concat}ftp://ftp.gfdl.noaa.gov/"
+        "perm/Alistair.Adcroft/MOM6-testing/OM4_025/ocean_hgrid.nc"
+    ),
     "MPI-ESM1-2-HR": (
         "{mock_concat}https://swift.dkrz.de/v1/dkrz_07387162e5cd4c81b1376bd7c648bb60/"
         "mpiom_fx/pool/data/MPIOM/input/r0013/GR15/GR15L40_fx.nc"
@@ -58,6 +62,7 @@ xr_open_kwargs_dict = {
 
 filepattern_kwargs_dict = {
     "GFDL-ESM4": {"file_type": "netcdf3"},
+    "GFDL-CM4": {"file_type": "netcdf3"},
     "MPI-ESM1-2-HR": {"file_type": "netcdf3"},
     "MPI-ESM1-2-LR": {"file_type": "netcdf3"},
     "NorESM2-MM": {"file_type": "netcdf3"},
