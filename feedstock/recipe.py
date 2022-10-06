@@ -28,6 +28,8 @@ url_dict = {
     "NorESM2-LM": (
         "{mock_concat}http://ns9560k.web.sigma2.no/inputdata/ocn/blom/grid/grid_tnx1v4_20170622.nc"
     ),
+    "CNRM-CM6-1-HR": (
+        "{mock_concat}https://filesender.renater.fr/download.php?token=dbb3014a-5a72-4bed-b011-551386676750&files_ids=14938340"
     "CESM2": (
         "{mock_concat}https://zenodo.org/record/6643449/files/CESM2_ocean_grid.nc?download=1"
     ),
