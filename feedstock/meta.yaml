@@ -11,7 +11,7 @@ provenance:
     - name: "NOAA-GFDL"
       roles: 
        - host
-      description: Provides grid files for GFDL-ESM4/GFDL-CM4
+      description: Provides grid files for GFDL-ESM4/GFDL-CM4 
       url: https://data1.gfdl.noaa.gov
     - name: "NCC"
       roles: 
