@@ -1,7 +1,5 @@
 title: "CMIP6 Static Ocean Grids"
 description: "Grid mesh files for the native ocean grids of CMIP6 models"
-pangeo_forge_version: "0.8.3"
-pangeo_notebook_version: "2021.12.02"
 recipes:
   dict_object: "recipe:recipes"
 provenance:
@@ -11,7 +9,7 @@ provenance:
     - name: "NOAA-GFDL"
       roles: 
        - host
-      description: Provides grid files for GFDL-ESM4
+      description: Provides grid files for GFDL-ESM4/GFDL-CM4 
       url: https://data1.gfdl.noaa.gov
     - name: "NCC"
       roles: 
